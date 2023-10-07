@@ -6,17 +6,28 @@ def day_of_week():
     # Let's start simple, and build up from there.
     # 1.1 TODO: Write a for loop that prints out each day in the `days` variable above.
 
+    for day in days:
+        print(day)
+
     # 1.2 TODO: Write another for loop that does the same thing, but this time use the range function
 
-
+    for i in range(len(days)):
+        print(days[i])
+    
 def favorite_activities():
     # 2.1 TODO: Now, in a for loop, instead of just printing out the day,
     # let's ask the user what their favorite thing to do is on that day of the week.
     # NOTE: Make sure to use an f-string so that the user knows which day they're being asked about.
-
     # We should keep track of the user's favorite things to do so that we can print them out all together.
-    # 2.2 TODO: ABOVE your for loop, create a new empty list to hold the user's favorite activities.
+    activities_list = []
+    for day in days:
+        if day in days:
+            activities = input(f"what is your favorite thing to do on {day}?")
+            activities_list.append(activities)
 
+    print(activities_list)
+
+    # 2.2 TODO: ABOVE your for loop, create a new empty list to hold the user's favorite activities.
     # 2.3 TODO: Now, back in your for loop, append each of the user's answers into your new list.
     # AFTER your loop, print out the list to check if it got populated correctly.
 
@@ -28,6 +39,11 @@ def favorite_activities():
     # of the items in the lists (this will work because the lists are the same length).
     # Each time through this new loop, use the index number to index into each of your lists for the data
     # you need to print out.
+    for i in range(len(days)):
+        day = days[i]
+        activity = activities_list[i]
+        print(f"On {day}s, your favorite activity is to {activity}.")
+
 
 
 '''
@@ -52,6 +68,14 @@ def temp_by_day():
     # is. If the temperature is below 50, tell the user to 'Brr, put on a jacket!'. Or, if the temperature is
     # between 50 and 65, tell the user to 'Cozy, grab a sweater'. Finally, if the temperature is above 65,
     # tell the user to 'Put on some sunscreen!'.
+    for day in days:
+        temp = int(input("It's {day}, what the tempeture"))
+        if temp < 50:
+            print("Brr, put on a jacket!")
+        elif temp >= 50 and temp <= 65:
+            print("Cozy, grab a sweater")
+        elif temp > 65:
+            print("Put on some sunscreen!")
 
 
 def temp_by_day_continuous():
@@ -61,3 +85,10 @@ def temp_by_day_continuous():
 
     # NOTE: If you accidentally create an infinite while loop, it's ok! Go into the command line and
     # hit control + C to stop the program. No harm has been done to your computer.
+    while True:
+        out_temp = int(input("What is the current tempeture outside?"))
+        if out_temp < 65:
+            print("Wear a sweater")
+        if out_temp > 65:
+            print("Spring has sprung!")
+            break
